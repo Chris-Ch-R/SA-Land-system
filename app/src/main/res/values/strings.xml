@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SystemAnalysis</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_ads_maps">Map</string>
+    <string name="google_maps_key">AIzaSyDv4B6kbWuev6ogI4ot_cNLPN98Zy5Gmw4</string>
 </resources>
