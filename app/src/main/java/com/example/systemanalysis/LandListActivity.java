@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class LandListActivity extends AppCompatActivity {
     ListView listView;
     LandListAdapter listAdapter;
 
@@ -57,11 +57,17 @@ public class MainActivity extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             intent.putExtra("landID" , dao.get(position).getId());
                             intent.putExtra("latitude" , dao.get(position).getLatitude());
-                            intent.putExtra("longitude" , dao.get(position).getLongitude());
+                            intent.putExtra("name" , dao.get(position).getOwner().getName());
+                            intent.putExtra("deedNumber" , dao.get(position).getDeedNumber());
+                            intent.putExtra("landNumber" , dao.get(position).getLandNumber());
+                            intent.putExtra("landAddress" , dao.get(position).getLandAddress());
+                            intent.putExtra("Tombon" , dao.get(position).getTombon().getNameTh());
+                            intent.putExtra("amphure" , dao.get(position).getTombon().getAmphure().getNameTh());
+                            intent.putExtra("province" , dao.get(position).getTombon().getAmphure().getProvince().getNameTh());
+                            intent.putExtra("landArea" , dao.get(position).getLandAreaReal());
                             startActivity(intent);
                         }
                     });
-                    Toast.makeText(getApplicationContext() , "lfe", Toast.LENGTH_LONG).show();
 //                    Log.i("response", "onResponse: Success:" + dao.getData().get(0).getAgreement());
 
                 }else {

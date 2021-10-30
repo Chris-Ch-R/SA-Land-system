@@ -3,17 +3,18 @@ package com.example.systemanalysis.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.systemanalysis.R;
 
 public class LandListItem extends FrameLayout {
+    ImageView ivLandPhoto;
     TextView tvAddress;
-    TextView tvDepartment;
-    TextView tvDistrict;
     TextView tvProvince;
     TextView tvName;
 
@@ -48,9 +49,8 @@ public class LandListItem extends FrameLayout {
 
     private void initInstances(){
         // findViewByID here
+        ivLandPhoto = findViewById(R.id.ivLandPhoto);
         tvAddress = findViewById(R.id.tvAddress);
-        tvDepartment = findViewById(R.id.tvDepartment);
-        tvDistrict = findViewById(R.id.tvDistrict);
         tvProvince = findViewById(R.id.tvProvince);
         tvName = findViewById(R.id.tvName);
     }
@@ -58,17 +58,28 @@ public class LandListItem extends FrameLayout {
     public void setAddressText(String text){
         tvAddress.setText(text);
     }
-    public void setDepartmentText(String text){
-        tvDepartment.setText(text);
-    }
-    public void setDistrictText(String text){
-        tvDistrict.setText(text);
-    }
     public void setProvinceText(String text){
         tvProvince.setText(text);
     }
     public void setNameText(String text){
         tvName.setText(text);
     }
+    public void setImageUrl(String url){
+        Glide.with(getContext())
+                .load(url)
+                .into(ivLandPhoto);
+    }
 
+
+
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = width * 2/3;
+        int newHeightMeasureSpec = MeasureSpec.makeMeasureSpec(height , MeasureSpec.EXACTLY);
+        super.onMeasure(widthMeasureSpec, newHeightMeasureSpec);
+
+        setMeasuredDimension(width,height);
+    }
 }

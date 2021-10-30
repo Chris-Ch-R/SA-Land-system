@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,15 +17,29 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.systemanalysis.databinding.ActivityMapsBinding;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     int landID;
     double latitude , longitude;
+    String name;
+    String deedNumber;
+    String landNumber;
+    String landAddress;
+    String tombon;
+    String amphure;
+    String province;
+    int landArea;
     Button btnCustomer;
     Button btnAds;
+    TextView tvName;
+    TextView tvDeedNumber;
+    TextView tvLandNumber;
+    TextView tvTombon;
+    TextView tvAmphure;
+    TextView tvProvince;
+    TextView tvLandArea;
 
 //    private ActivityMapsBinding binding;
 
@@ -36,10 +51,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = getIntent();
         landID = intent.getIntExtra("landID" , -1) ;
         latitude = intent.getDoubleExtra("latitude" , 13.736717);
-        longitude = intent.getDoubleExtra("longitude" , 100.523186);
+        name = intent.getStringExtra("name");
+        deedNumber = intent.getStringExtra("deedNumber" );
+        landNumber = intent.getStringExtra("landNumber" );
+        landAddress = intent.getStringExtra("landAddress" );
+        tombon = intent.getStringExtra("Tombon");
+        amphure = intent.getStringExtra("amphure");
+        province = intent.getStringExtra("province" );
+        landArea = intent.getIntExtra("landArea" , 100);
 
-        Log.i("landID", "onCreate: " + landID);
-        Toast.makeText(this ,  "landID" + landID , Toast.LENGTH_LONG).show();
 
 //        binding = ActivityMapsBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
@@ -68,7 +88,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         LatLng landLocation = new LatLng(latitude , longitude);
 
-        mMap.addMarker(new MarkerOptions().position(landLocation).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(landLocation)
+                .title(landAddress  )
+                .snippet(tombon + " " + amphure + " " + province));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(landLocation , 5));
 //        mMap.animateCamera(CameraUpdateFactory.zoomIn());
     }
@@ -76,8 +98,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void initInstance(){
         btnCustomer = findViewById(R.id.btnCustomer);
         btnAds = findViewById(R.id.btnAds);
+        tvName = findViewById(R.id.tvName);
+        tvDeedNumber = findViewById(R.id.tvDeedNumber);
+        tvLandNumber = findViewById(R.id.tvLandNumber);
+        tvTombon = findViewById(R.id.tvTombon);
+        tvAmphure = findViewById(R.id.tvAmphure);
+        tvProvince = findViewById(R.id.tvProvince);
+        tvLandArea = findViewById(R.id.tvLandArea);
+
+        setText();
+
         btnCustomer.setOnClickListener(v -> {
-            Intent intentCustomer = new Intent(getApplicationContext() , CustomerListActivity.class );
+            Intent intentCustomer = new Intent(getApplicationContext() , InterestedListActivity.class );
             intentCustomer.putExtra("landID" , landID);
             startActivity(intentCustomer);
         });
@@ -87,5 +119,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             startActivity(intentAds);
 
         });
+    }
+
+    private void setText(){
+        tvName.setText(name);
+        tvDeedNumber.setText(deedNumber);
+        tvLandNumber.setText(landNumber);
+        tvTombon.setText(tombon);
+        tvAmphure.setText(amphure);
+        tvProvince.setText(province);
+        tvLandArea.setText(landArea + " ตารางวา");
     }
 }

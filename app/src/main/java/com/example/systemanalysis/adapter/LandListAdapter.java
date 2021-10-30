@@ -36,12 +36,13 @@ public class LandListAdapter extends BaseAdapter {
             item = new LandListItem(parent.getContext());
 
         LandItemDao dao = (LandItemDao) getItem(position);
-        //TODO getAddress
         item.setAddressText(dao.getLandAddress());
-//        item.setDepartmentText("แขวง : " + dao.get.getDepartment());
-//        item.setDistrictText("เขต : " +dao.getAddress().getDistrict());
-//        item.setProvinceText("จังหวัด : " +dao.getAddress().getProvince());
+        item.setProvinceText(dao.getTombon().getAmphure().getProvince().getNameTh() +
+                " " + dao.getTombon().getAmphure().getNameTh() +
+                        " " + dao.getTombon().getNameTh());
         item.setNameText(dao.getOwner().getName());
+        if (dao.getLandFile().size() > 0)
+            item.setImageUrl("http://192.168.43.138:8000" + dao.getLandFile().get(0).getPath());
 
 
         return item;

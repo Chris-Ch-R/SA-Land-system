@@ -19,6 +19,9 @@ public class TombonDao {
     @SerializedName("amphure_id")
     @Expose
     private Integer amphureId;
+    @SerializedName("amphure")
+    @Expose
+    private AmphureDao amphure;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -80,6 +83,14 @@ public class TombonDao {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public AmphureDao getAmphure() {
+        return amphure;
+    }
+
+    public void setAmphure(AmphureDao amphure) {
+        this.amphure = amphure;
     }
 
     @Override

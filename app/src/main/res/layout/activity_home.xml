@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="10px"
-            android:text="+ฝากซื้อ"/>
+            android:text="ผู้สนใจซื้อ"/>
 
     </LinearLayout>
 

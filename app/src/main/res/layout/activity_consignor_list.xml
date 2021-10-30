@@ -6,9 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ConsignorListActivity">
 
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="เลือกผู้ฝากขาย"
+        android:textAlignment="center"
+        android:textSize="26dp"/>
+
     <ListView
         android:id="@+id/lvConsignor"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvHeader"/>
 
 </RelativeLayout>

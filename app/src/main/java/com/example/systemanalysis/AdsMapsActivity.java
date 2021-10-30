@@ -27,6 +27,7 @@ public class AdsMapsActivity extends FragmentActivity implements OnMapReadyCallb
     private ActivityAdsMapsBinding binding;
     int landID;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

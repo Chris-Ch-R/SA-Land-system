@@ -1,281 +1,402 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     tools:context=".ConsignorNextActivity">
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="พิกัด"
-            android:textAlignment="center" />
-
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="GPS" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ข้อมูลที่ดิน"
-        android:textAlignment="center"
-        android:textSize="36dp" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="หมายเลขที่ดิน"
-            android:textAlignment="center"
-            android:textSize="16dp" />
-
-
-        <EditText
-            android:id="@+id/edtLandNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="หมายเลขโฉนด"
-            android:textAlignment="center"
-            android:textSize="16dp" />
-
-
-        <EditText
-            android:id="@+id/edtDeedNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ที่อยู่"
-            android:textAlignment="center"
-            android:textSize="16dp" />
-
-
-        <EditText
-            android:id="@+id/edtLandAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="จังหวัด"
-            android:textAlignment="center"
-            android:textSize="16dp" />
-
-
-        <Spinner
-            android:id="@+id/spProvince"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="เขต"
-            android:textAlignment="center"
-            android:textSize="16dp" />
-
-
-        <Spinner
-            android:id="@+id/spAmphure"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="แขวง"
-            android:textAlignment="center"
-            android:textSize="16dp" />
-
-
-        <Spinner
-            android:id="@+id/spTombon"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ข้อมูลที่ดิน"
+                android:textAlignment="center"
+                android:textSize="36dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10px"
-        android:layout_marginBottom="10px"
-        android:text="ขนาดพื้นที่"
-        android:textSize="24dp" />
+            <ImageView
+                android:id="@+id/preview"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/picture" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <Button
+                android:id="@+id/pickImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Pick Image" />
 
-        <TextView
-            android:layout_width="0dp"
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="หมายเลขที่ดิน"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtLandNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="หมายเลขโฉนด"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtDeedNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ที่อยู่"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtLandAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="จังหวัด"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <Spinner
+                    android:id="@+id/spProvince"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="เขต/อำเภอ"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <Spinner
+                    android:id="@+id/spAmphure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="แขวง/ตำบล"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <Spinner
+                    android:id="@+id/spTombon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="latitude"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtLatitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="longtitude"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtLongtitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Commission"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtCommission"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="10px"
+                android:text="ขนาดพื้นที่"
+                android:textSize="24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="พื้นที่จริง"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtLandAreaReal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="พื้นที่ในโฉนด"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtLandAreaDeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ราคาต่อหน่วย"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <EditText
+                    android:id="@+id/edtPricePerUnit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ประเภทสี"
+                    android:textAlignment="center"
+                    android:textSize="16dp" />
+
+
+                <Spinner
+                    android:id="@+id/spColorType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agreement"
+                android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="พื้นที่จริง"
-            android:textAlignment="center"
-            android:textSize="16dp" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="วันหมดอายุ" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="ปี-เดือน-วัน"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+        </LinearLayout>
 
 
-        <EditText
-            android:id="@+id/edtLandAreaReal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="พื้นที่ในโฉนด"
-            android:textAlignment="center"
-            android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
 
 
-        <EditText
-            android:id="@+id/edtLandAreaDeed"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="number" />
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/uploadFile"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="สัญญา"/>
+                <TextView
+                    android:id="@+id/tvAgreement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20px"
+                    android:text="สัญญา.pdf"
+                    android:layout_weight="2"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="ราคาต่อหน่วย"
-            android:textAlignment="center"
-            android:textSize="16dp" />
+            </LinearLayout>
 
 
-        <EditText
-            android:id="@+id/edtPricePerUnit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:inputType="number" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="on"
-            android:textAlignment="center"
-            android:textSize="24dp" />
-
-        <Button
-            android:id="@+id/uploadFile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="click to upload" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvAgreement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20px"
-        android:text="agreement.pdf"
-        android:textSize="16dp" />
-
-    <Button
-        android:id="@+id/btnSaveLand"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="บันทึก" />
+            <Button
+                android:id="@+id/btnSaveLand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="บันทึก" />
+        </LinearLayout>
+    </ScrollView>
 
 
-</LinearLayout>
+</RelativeLayout>

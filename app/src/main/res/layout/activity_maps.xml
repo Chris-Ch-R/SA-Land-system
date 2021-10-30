@@ -8,12 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -23,7 +25,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                
 
 
             </LinearLayout>
@@ -35,27 +36,168 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:background="#337CFF"
-                android:layout_marginBottom="25dp"
-                android:layout_marginRight="15dp"
                 android:text="ผู้ที่สนใจ" />
 
             <Button
                 android:id="@+id/btnAds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_above="@id/btnCustomer"
                 android:layout_alignLeft="@id/btnCustomer"
                 android:layout_alignRight="@id/btnCustomer"
                 android:layout_marginBottom="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:background="#337CFF"
 
-                android:text="AARAi wa" />
+                android:text="ที่อยู่โฆษณา" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="20dp"
+                android:background="@drawable/round_bg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ข้อมูลที่ดิน"
+                    android:textAlignment="center"
+                    android:textSize="36dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ชื่อ"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="เลขโฉนดที่ดิน"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="เลขที่ดิน"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="แขวง/ตำบล"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="เขต/อำเภอ"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="จังหวัด"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="เนื้อที่"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ข้อมูลชื่อ"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvDeedNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ข้อมูลเลขโฉนดที่ดิน"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvLandNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ข้อมูลเลขที่ดิน"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvTombon"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ข้อมูลแขวง/ตำบล"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvAmphure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ข้อมูลเขต/อำเภอ"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvProvince"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ข้อมูลจังหวัด"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvLandArea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ข้อมูลเนื้อที่"
+                            android:textSize="16dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
         </RelativeLayout>
 
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

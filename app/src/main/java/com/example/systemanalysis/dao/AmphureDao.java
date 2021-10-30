@@ -28,6 +28,9 @@ public class AmphureDao {
     @SerializedName("tombon")
     @Expose
     private List<TombonDao> tombon = null;
+    @SerializedName("province")
+    @Expose
+    private ProvinceDao province;
 
     public Integer getId() {
         return id;
@@ -83,6 +86,14 @@ public class AmphureDao {
 
     public void setTombon(List<TombonDao> tombon) {
         this.tombon = tombon;
+    }
+
+    public ProvinceDao getProvince() {
+        return province;
+    }
+
+    public void setProvince(ProvinceDao province) {
+        this.province = province;
     }
 
     @Override

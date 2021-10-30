@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
     private void initInstance(){
         btnLandList = findViewById(R.id.btnLandList);
         btnLandList.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+            Intent intent = new Intent(getApplicationContext() , LandListActivity.class);
             startActivity(intent);
         });
         btnForSell = findViewById(R.id.btnForSell);
@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         btnAddLand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() , ConsignorNextActivity.class);
+                Intent intent = new Intent(getApplicationContext() , ConsignorListActivity.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         btnAddCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() , CustomerActivity.class);
+                Intent intent = new Intent(getApplicationContext() , CustomerListActivity.class);
                 startActivity(intent);
             }
         });

@@ -3,7 +3,9 @@ package com.example.systemanalysis;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -70,9 +72,24 @@ public class ConsignorActivity extends AppCompatActivity {
     }
 
     private void addConsignor(){
+
         name = edtName.getText().toString();
         email = edtEmail.getText().toString();
         phone = edtPhone.getText().toString();
+        if (name.equals("") || email.equals("") || phone.equals("") ){
+            AlertDialog alertDialog = new AlertDialog.Builder(ConsignorActivity.this).create();
+            alertDialog.setTitle("เกิดข้อผิดพลาด");
+            alertDialog.setMessage("กรุณาใส่ข้อมูลให้ครบถ้วนและถูกต้อง");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            return;
+                        }
+                    });
+            alertDialog.show();
+
+        }
 
         ConsignmentItemDao conDao = new ConsignmentItemDao();
         conDao.setName(name);
@@ -83,7 +100,9 @@ public class ConsignorActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ConsignmentItemDao> call, Response<ConsignmentItemDao> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(getApplicationContext() , response.body().getName() , Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext() , "เพิ่มข้อมูลสำเร็จ" , Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext() , HomeActivity.class);
+                    startActivity(intent);
 
 
                 }
@@ -101,33 +120,5 @@ public class ConsignorActivity extends AppCompatActivity {
 
     }
 
-    private void addAgreement(){
-        AgreementItemDao agreement = new AgreementItemDao();
-//        agreement.setPath(filePath);
-        Call<AgreementItemDao> call = HttpManager.getInstance().getService().addAgreement(agreement);
-        call.enqueue(new Callback<AgreementItemDao>() {
-            @Override
-            public void onResponse(Call<AgreementItemDao> call,
-                                   Response<AgreementItemDao> response) {
-                if (response.isSuccessful()){
-
-                }else {
-
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<AgreementItemDao> call, Throwable t) {
-
-            }
-        });
-
-    }
-
-    private void addLand(){
-
-
-    }
 
 }

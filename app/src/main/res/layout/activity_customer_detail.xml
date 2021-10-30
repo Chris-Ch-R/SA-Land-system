@@ -4,56 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".CustomerDetailActivity">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
-
+        >
         <TextView
+            android:id="@+id/tvHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name" />
+            android:text="รายละเอียดลูกค้า"
+            android:textSize="36sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="email" />
+    </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="phone number" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_bg"
+        android:layout_marginHorizontal="40dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="viewEnd"
+                android:text="ชื่อ :"
+                android:textSize="18sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="email :"
+                android:textSize="18sp"
+                android:textAlignment="viewEnd"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="โทรศัพท์ :"
+                android:textSize="18sp"
+                android:textAlignment="viewEnd"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvCustomerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Narongrit Tam"
+
+                android:textSize="18sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tvCustomerEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="narogrit@ku.th"
+                android:textSize="18sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvCustomerPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXX-XXXXXXX"
+                android:textSize="18sp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tvCustomerName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Narongrit Tam" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-        <TextView
-            android:id="@+id/tvCustomerEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="narogrit@ku.th" />
 
-        <TextView
-            android:id="@+id/tvCustomerPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="XXX-XXXXXXX" />
-
-    </LinearLayout>
 
 </LinearLayout>
