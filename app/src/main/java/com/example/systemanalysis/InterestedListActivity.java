@@ -54,6 +54,7 @@ public class InterestedListActivity extends AppCompatActivity {
                     lvInterestCustomer.setOnItemClickListener((parent, view, position, id) -> {
                         Intent intentCustomerDetail = new Intent(getApplicationContext() , CustomerDetailActivity.class);
                         intentCustomerDetail.putExtra("customerID" , dao.getCustomers().get(position).getId());
+                        intentCustomerDetail.putExtra("landID" , landID);
                         startActivity(intentCustomerDetail);
 
                     });

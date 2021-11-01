@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context=".ConsignorActivity">
+    tools:context=".AddAdsActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,29 +14,48 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="โฆษณา"
                 android:textAlignment="center"
-                android:text="ผู้ฝากขาย"
-                android:textSize="34dp" />
+                android:textSize="36sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="ชื่อ"
+                    android:text="รายละเอียด"
                     android:textAlignment="center"
-                    android:textSize="16dp" />
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/edtName"
+                    android:id="@+id/edtAdsDetail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:inputType="textMultiLine"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ราคา"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edtCost"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2" />
@@ -46,63 +64,70 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="E-mail"
+                    android:text="ช่องทางติดต่อ"
                     android:textAlignment="center"
-                    android:textSize="16dp" />
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/edtEmail"
+                    android:id="@+id/edtContract"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:inputType="textEmailAddress"/>
+                    android:layout_weight="2" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="หมายเลขโทรศัพท์:"
+                    android:text="latitude"
                     android:textAlignment="center"
-                    android:textSize="16dp" />
+                    android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/edtPhone"
+                    android:id="@+id/edtAdsLatitude"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:inputType="phone"/>
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="longitude"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edtAdsLongitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
             </LinearLayout>
-
 
         </LinearLayout>
 
     </ScrollView>
 
 
+
+
     <Button
-        android:id="@+id/btnConfirm"
+        android:id="@+id/btnSaveAds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="บันทึก"
-        android:textAlignment="center"
-        android:textSize="24dp" />
-
+        android:text="บันทึก" />
 
 </RelativeLayout>

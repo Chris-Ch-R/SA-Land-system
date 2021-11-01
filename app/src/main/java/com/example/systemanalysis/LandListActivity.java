@@ -49,24 +49,27 @@ public class LandListActivity extends AppCompatActivity {
                     LandListManager.getInstance().setDao(dao);
                     listAdapter.notifyDataSetChanged();
 
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(getApplicationContext() , MapsActivity.class);
-                            Log.i("landid", "onItemClick: " +  dao.get(position).getId());
-                            Bundle bundle = new Bundle();
-                            intent.putExtra("landID" , dao.get(position).getId());
-                            intent.putExtra("latitude" , dao.get(position).getLatitude());
-                            intent.putExtra("name" , dao.get(position).getOwner().getName());
-                            intent.putExtra("deedNumber" , dao.get(position).getDeedNumber());
-                            intent.putExtra("landNumber" , dao.get(position).getLandNumber());
-                            intent.putExtra("landAddress" , dao.get(position).getLandAddress());
-                            intent.putExtra("Tombon" , dao.get(position).getTombon().getNameTh());
-                            intent.putExtra("amphure" , dao.get(position).getTombon().getAmphure().getNameTh());
-                            intent.putExtra("province" , dao.get(position).getTombon().getAmphure().getProvince().getNameTh());
-                            intent.putExtra("landArea" , dao.get(position).getLandAreaReal());
-                            startActivity(intent);
+                    listView.setOnItemClickListener((parent, view, position, id) -> {
+                        Intent intent = new Intent(getApplicationContext() , MapsActivity.class);
+                        Log.i("landid", "onItemClick: " +  dao.get(position).getId());
+                        Bundle bundle = new Bundle();
+                        intent.putExtra("landID" , dao.get(position).getId());
+                        intent.putExtra("latitude" , dao.get(position).getLatitude());
+                        intent.putExtra("longitude" , dao.get(position).getLongitude());
+                        intent.putExtra("name" , dao.get(position).getOwner().getName());
+                        intent.putExtra("deedNumber" , dao.get(position).getDeedNumber());
+                        intent.putExtra("landNumber" , dao.get(position).getLandNumber());
+                        intent.putExtra("landAddress" , dao.get(position).getLandAddress());
+                        intent.putExtra("Tombon" , dao.get(position).getTombon().getNameTh());
+                        intent.putExtra("amphure" , dao.get(position).getTombon().getAmphure().getNameTh());
+                        intent.putExtra("province" , dao.get(position).getTombon().getAmphure().getProvince().getNameTh());
+                        intent.putExtra("landArea" , dao.get(position).getLandAreaReal());
+                        if ( dao.get(position).getStatus() == 0){
+                            intent.putExtra("landStatus" , "ไม่มีเจ้าของ");
+                        }else {
+                            intent.putExtra("landStatus" , "มีเจ้าของแล้ว");
                         }
+                        startActivity(intent);
                     });
 //                    Log.i("response", "onResponse: Success:" + dao.getData().get(0).getAgreement());
 

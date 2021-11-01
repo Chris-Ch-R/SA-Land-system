@@ -73,9 +73,12 @@ public class LandItemDao {
     @SerializedName("tombon")
     @Expose
     private TombonDao tombon;
-@SerializedName("customers")
+    @SerializedName("customers")
     @Expose
     private List<CustomerItemDao> customers;
+    @SerializedName("pivot")
+    @Expose
+    private CustomerLandItemDao customersLand;
 
     public Integer getId() {
         return id;
@@ -259,5 +262,13 @@ public class LandItemDao {
 
     public void setCustomers(List<CustomerItemDao> customers) {
         this.customers = customers;
+    }
+
+    public CustomerLandItemDao getCustomersLand() {
+        return customersLand;
+    }
+
+    public void setCustomersLand(CustomerLandItemDao customersLand) {
+        this.customersLand = customersLand;
     }
 }

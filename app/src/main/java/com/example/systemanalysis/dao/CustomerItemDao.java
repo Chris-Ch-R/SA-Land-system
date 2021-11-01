@@ -3,6 +3,8 @@ package com.example.systemanalysis.dao;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class CustomerItemDao {
     @SerializedName("id")
     @Expose
@@ -31,6 +33,9 @@ public class CustomerItemDao {
     @SerializedName("deleted_at")
     @Expose
     private Object deletedAt;
+    @SerializedName("lands")
+    @Expose
+    private List<LandItemDao> land;
 
     public Integer getId() {
         return id;
@@ -102,5 +107,13 @@ public class CustomerItemDao {
 
     public void setDeletedAt(Object deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public List<LandItemDao> getLand() {
+        return land;
+    }
+
+    public void setLand(List<LandItemDao> land) {
+        this.land = land;
     }
 }

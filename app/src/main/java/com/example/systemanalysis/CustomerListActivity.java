@@ -50,9 +50,9 @@ public class CustomerListActivity extends AppCompatActivity {
                     CustomerListManager.getInstance().setDao(dao);
                     customerListAdapter.notifyDataSetChanged();
                     lwCustomer.setOnItemClickListener((parent, view, position, id) -> {
-                        Intent intentCustomerDetail = new Intent(getApplicationContext() , CustomerDetailActivity.class);
-                        intentCustomerDetail.putExtra("customerID" , dao.get(position).getId());
-                        startActivity(intentCustomerDetail);
+//                        Intent intentCustomerDetail = new Intent(getApplicationContext() , CustomerDetailActivity.class);
+//                        intentCustomerDetail.putExtra("customerID" , dao.get(position).getId());
+//                        startActivity(intentCustomerDetail);
 
                     });
                     Log.i("response", "onResponse: success :" +dao.get(0).getName());

@@ -10,113 +10,188 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
+
         <TextView
             android:id="@+id/tvHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="รายละเอียดลูกค้า"
-            android:textSize="36sp"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="30dp"
-            android:layout_alignParentBottom="true"/>
+            android:text="รายละเอียดลูกค้า"
+            android:textSize="36sp" />
 
     </RelativeLayout>
 
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/round_bg"
-        android:layout_marginHorizontal="40dp">
+        android:layout_weight="1">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/round_bg"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
-                android:text="ชื่อ :"
-                android:textSize="18sp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="email :"
-                android:textSize="18sp"
-                android:textAlignment="viewEnd"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="ชื่อ :"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="โทรศัพท์ :"
-                android:textSize="18sp"
-                android:textAlignment="viewEnd"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="email :"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="โทรศัพท์ :"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="สถานะ :"
+                    android:textAlignment="viewEnd"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvCustomerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Narongrit Tam"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvCustomerEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="narogrit@ku.th"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvCustomerPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="XXX-XXXXXXX"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvCustomerStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="สนใจ"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/tvCustomerName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Narongrit Tam"
 
-                android:textSize="18sp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"/>
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tvCustomerEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="narogrit@ku.th"
-                android:textSize="18sp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:id="@+id/tvCustomerPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="XXX-XXXXXXX"
-                android:textSize="18sp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
 
+        <TextView
+            android:id="@+id/tvFileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:textSize="18sp"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvFileName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:text="อัพโหลดสัญญา"
+            android:visibility="invisible"/>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnUpload"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:text="ยืนยันการซื้อ" />
+
+        <Button
+            android:id="@+id/btnPending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnUpload"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+
+            android:text="ประเมินสำเร็จ" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnConfirm"
+            android:layout_centerHorizontal="true"
+            android:background="#FF0000"
+            android:text="ยกเลิก" />
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>

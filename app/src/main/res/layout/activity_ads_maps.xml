@@ -12,13 +12,5 @@
         android:layout_height="match_parent"
         tools:context=".AdsMapsActivity" />
 
-    <Button
-        android:id="@+id/btnAddAds"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="เพิ่มตำแหน่งปัจจุบัน"/>
+
 </RelativeLayout>

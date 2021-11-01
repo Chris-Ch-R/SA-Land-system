@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SystemAnalysis">
-        <activity android:name=".InterestedListActivity"></activity>
+        <activity android:name=".AddAdsActivity"></activity>
+        <activity android:name=".InterestedListActivity" />
         <activity android:name=".ImageActivity" />
         <activity android:name=".ConsignorListActivity" />
         <activity android:name=".CustomerActivity" />

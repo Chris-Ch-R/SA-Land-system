@@ -17,6 +17,7 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -57,6 +58,9 @@ public interface ApiService {
     @POST("consignment")
     Call<ConsignmentItemDao> addConsignor(@Body ConsignmentItemDao consignor);
 
+    @POST("ads")
+    Call<AdsItemDao> addAds(@Body AdsItemDao ads);
+
     @POST("customer")
     Call<CustomerItemDao> addCustomer(@Body CustomerItemDao customer);
 
@@ -81,5 +85,21 @@ public interface ApiService {
             @Part MultipartBody.Part file
     );
 
+    @Multipart
+    @POST("customeragreement")
+    Call<ResponseBody> addCustomerAgreement(
+            @Part("land_id") RequestBody landID,
+            @Part("customer_id") RequestBody customerID,
+            //agreement
+            @Part MultipartBody.Part file
+    );
+
+    @Multipart
+    @POST("customeragreement")
+    Call<ResponseBody> changeStatus(
+            @Part("land_id") RequestBody landID,
+            @Part("customer_id") RequestBody customerID,
+            @Part("status") RequestBody status
+    );
 
 }

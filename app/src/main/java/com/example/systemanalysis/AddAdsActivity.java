@@ -3,7 +3,6 @@ package com.example.systemanalysis;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,25 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.systemanalysis.dao.CustomerItemDao;
+import com.example.systemanalysis.dao.AdsItemDao;
 import com.example.systemanalysis.manager.HttpManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CustomerActivity extends AppCompatActivity {
-    Button btnConfirm;
-    EditText edtName;
-    EditText edtEmail;
-    EditText edtPhone;
-
-    String customerName;
-    String email;
-    String phone;
-
+public class AddAdsActivity extends AppCompatActivity {
     int landID;
-
     double latitude , longitude;
     String name;
     String deedNumber;
@@ -40,10 +29,17 @@ public class CustomerActivity extends AppCompatActivity {
     String province;
     int landArea;
 
+    EditText edtAdsDetail;
+    EditText edtCost;
+    EditText edtContract;
+    EditText edtLatitude;
+    EditText edtLongitude;
+    Button btnSaveAds;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer);
+        setContentView(R.layout.activity_add_ads);
         Intent intent = getIntent();
         landID = intent.getIntExtra("land_id" , -1);
         latitude = intent.getDoubleExtra("latitude" , 13.736717);
@@ -56,27 +52,33 @@ public class CustomerActivity extends AppCompatActivity {
         amphure = intent.getStringExtra("amphure");
         province = intent.getStringExtra("province" );
         landArea = intent.getIntExtra("landArea" , 100);
-
         initInstance();
     }
 
     private void initInstance(){
-        btnConfirm = findViewById(R.id.btnConfirm);
-        edtName = findViewById(R.id.edtName);
-        edtEmail = findViewById(R.id.edtEmail);
-        edtPhone = findViewById(R.id.edtPhone);
+        edtAdsDetail = findViewById(R.id.edtAdsDetail);
+        edtCost = findViewById(R.id.edtCost);
+        edtContract = findViewById(R.id.edtContract);
+        edtLatitude = findViewById(R.id.edtAdsLatitude);
+        edtLongitude = findViewById(R.id.edtAdsLongitude);
+        btnSaveAds = findViewById(R.id.btnSaveAds);
+        btnSaveAds.setOnClickListener(v -> saveAds());
 
-        btnConfirm.setOnClickListener(v -> {
-            addCustomer();
-        });
     }
 
-    private void addCustomer(){
-        customerName = edtName.getText().toString();
-        email = edtEmail.getText().toString();
-        phone = edtPhone.getText().toString();
-        if (name.equals("") || email.equals("") || phone.equals("") ){
-            AlertDialog alertDialog = new AlertDialog.Builder(CustomerActivity.this).create();
+    private void saveAds(){
+        String message = edtAdsDetail.getText().toString();
+        double cost = Double.parseDouble(edtCost.getText().toString());
+        String contact = edtContract.getText().toString();
+        double adsLatitude = Double.parseDouble(edtLatitude.getText().toString());
+        double adsLongitude = Double.parseDouble(edtLongitude.getText().toString());
+
+        if (message.equals("") ||
+                edtCost.getText().toString().equals("") ||
+                contact.equals("") ||
+                edtLatitude.getText().toString().equals("") ||
+                edtLongitude.getText().toString().equals("")){
+            AlertDialog alertDialog = new AlertDialog.Builder(AddAdsActivity.this).create();
             alertDialog.setTitle("เกิดข้อผิดพลาด");
             alertDialog.setMessage("กรุณาใส่ข้อมูลให้ครบถ้วนและถูกต้อง");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
@@ -88,20 +90,23 @@ public class CustomerActivity extends AppCompatActivity {
 
         }
 
-        CustomerItemDao customer = new CustomerItemDao();
-        customer.setName(customerName);
-        customer.setEmail(email);
-        customer.setPhoneNumber(phone);
-        customer.setLandId(landID);
-        Call<CustomerItemDao> call = HttpManager.getInstance().getService().addCustomer(customer);
-        call.enqueue(new Callback<CustomerItemDao>() {
+        AdsItemDao ads = new AdsItemDao();
+        ads.setLandId(landID);
+        ads.setMessage(message);
+        ads.setCost(cost);
+        ads.setContact(contact);
+        ads.setLatitude(adsLatitude);
+        ads.setLongitude(adsLongitude);
+
+        Call<AdsItemDao> call = HttpManager.getInstance().getService().addAds(ads);
+        call.enqueue(new Callback<AdsItemDao>() {
             @Override
-            public void onResponse(Call<CustomerItemDao> call,
-                                   Response<CustomerItemDao> response) {
-                if (response.isSuccessful()){
-                    Toast.makeText(getApplicationContext() , "บันทึกสำเร็จ" , Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                    intent.putExtra("landID" , landID);
+            public void onResponse(Call<AdsItemDao> call,
+                                   Response<AdsItemDao> response) {
+                if (response.isSuccessful() ){
+                    Toast.makeText(getApplicationContext() , "success" , Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext() , MapsActivity.class);
+                    intent.putExtra("landId" , landID);
                     intent.putExtra("latitude" ,latitude);
                     intent.putExtra("longitude" , longitude);
                     intent.putExtra("name" , name);
@@ -114,22 +119,16 @@ public class CustomerActivity extends AppCompatActivity {
                     intent.putExtra("landArea" , landArea);
                     startActivity(intent);
                 }else {
-//                    Toast.makeText(getApplicationContext() , response + "" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext() , response.errorBody() + "" , Toast.LENGTH_SHORT).show();
+
                 }
 
             }
 
             @Override
-            public void onFailure(Call<CustomerItemDao> call, Throwable t) {
-                Toast.makeText(getApplicationContext() , "Can't connect to database" , Toast.LENGTH_SHORT).show();
-
-
+            public void onFailure(Call<AdsItemDao> call, Throwable t) {
+                Toast.makeText(getApplicationContext() , t.toString() , Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-
     }
 }

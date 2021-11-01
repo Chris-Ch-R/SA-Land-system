@@ -29,31 +29,11 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnCustomer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:background="#337CFF"
-                android:text="ผู้ที่สนใจ" />
-
-            <Button
-                android:id="@+id/btnAds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@id/btnCustomer"
-                android:layout_alignLeft="@id/btnCustomer"
-                android:layout_alignRight="@id/btnCustomer"
-                android:layout_marginBottom="8dp"
-                android:background="#337CFF"
-
-                android:text="ที่อยู่โฆษณา" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_above="@+id/llButtons"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_margin="20dp"
@@ -127,6 +107,12 @@
                             android:text="เนื้อที่"
                             android:textAlignment="viewEnd"
                             android:textSize="16dp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="สถานะ"
+                            android:textAlignment="viewEnd"
+                            android:textSize="16dp" />
 
                     </LinearLayout>
 
@@ -184,14 +170,58 @@
                             android:layout_height="wrap_content"
                             android:text="ข้อมูลเนื้อที่"
                             android:textSize="16dp" />
+                        <TextView
+                            android:id="@+id/tvLandStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ไม่มีเจ้าของ"
+                            android:textSize="16dp" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
 
+            </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/llButtons"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/btnCustomer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#337CFF"
+                    android:text="ผู้ที่สนใจ" />
+
+                <Button
+                    android:id="@+id/btnAds"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#337CFF"
+                    android:text="โฆษณา" />
+
+                <Button
+                    android:id="@+id/btnAddCustomer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#337CFF"
+                    android:text="เพิ่มลูกค้า" />
+
+                <Button
+                    android:id="@+id/btnAddAds"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#337CFF"
+                    android:text="เพิ่มโฆษณา" />
             </LinearLayout>
 
         </RelativeLayout>

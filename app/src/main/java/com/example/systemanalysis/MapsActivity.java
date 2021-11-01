@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.systemanalysis.dao.TombonDao;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,9 +31,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     String tombon;
     String amphure;
     String province;
+    String landStatus;
     int landArea;
     Button btnCustomer;
     Button btnAds;
+    Button btnAddAds;
+    Button btnAddCustomer;
     TextView tvName;
     TextView tvDeedNumber;
     TextView tvLandNumber;
@@ -40,6 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     TextView tvAmphure;
     TextView tvProvince;
     TextView tvLandArea;
+    TextView tvLandStatus;
 
 //    private ActivityMapsBinding binding;
 
@@ -51,6 +56,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = getIntent();
         landID = intent.getIntExtra("landID" , -1) ;
         latitude = intent.getDoubleExtra("latitude" , 13.736717);
+        longitude = intent.getDoubleExtra("longitude" , 0);
         name = intent.getStringExtra("name");
         deedNumber = intent.getStringExtra("deedNumber" );
         landNumber = intent.getStringExtra("landNumber" );
@@ -59,6 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         amphure = intent.getStringExtra("amphure");
         province = intent.getStringExtra("province" );
         landArea = intent.getIntExtra("landArea" , 100);
+        landStatus = intent.getStringExtra("landStatus");
 
 
 //        binding = ActivityMapsBinding.inflate(getLayoutInflater());
@@ -98,6 +105,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void initInstance(){
         btnCustomer = findViewById(R.id.btnCustomer);
         btnAds = findViewById(R.id.btnAds);
+        btnAddAds = findViewById(R.id.btnAddAds);
+        btnAddCustomer = findViewById(R.id.btnAddCustomer);
         tvName = findViewById(R.id.tvName);
         tvDeedNumber = findViewById(R.id.tvDeedNumber);
         tvLandNumber = findViewById(R.id.tvLandNumber);
@@ -105,6 +114,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         tvAmphure = findViewById(R.id.tvAmphure);
         tvProvince = findViewById(R.id.tvProvince);
         tvLandArea = findViewById(R.id.tvLandArea);
+        tvLandStatus = findViewById(R.id.tvLandStatus);
 
         setText();
 
@@ -119,6 +129,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             startActivity(intentAds);
 
         });
+        btnAddAds.setOnClickListener(v -> {
+            Intent intentAddAds = new Intent(getApplicationContext() , AddAdsActivity.class);
+            intentAddAds.putExtra("land_id" , landID);
+            intentAddAds.putExtra("latitude" ,latitude);
+            intentAddAds.putExtra("longitude" , longitude);
+            intentAddAds.putExtra("name" , name);
+            intentAddAds.putExtra("deedNumber" , deedNumber);
+            intentAddAds.putExtra("landNumber" , landNumber);
+            intentAddAds.putExtra("landAddress" , landAddress);
+            intentAddAds.putExtra("Tombon" , tombon);
+            intentAddAds.putExtra("amphure" , amphure);
+            intentAddAds.putExtra("province" , province);
+            intentAddAds.putExtra("landArea" , landArea);
+            intentAddAds.putExtra("landStatus" , landStatus);
+
+            startActivity(intentAddAds);
+
+        });
+        btnAddCustomer.setOnClickListener(v -> {
+            Intent intentAddCustomer = new Intent(getApplicationContext() , CustomerActivity.class);
+            intentAddCustomer.putExtra("land_id" , landID);
+            intentAddCustomer.putExtra("latitude" ,latitude);
+            intentAddCustomer.putExtra("longitude" , longitude);
+            intentAddCustomer.putExtra("name" , name);
+            intentAddCustomer.putExtra("deedNumber" , deedNumber);
+            intentAddCustomer.putExtra("landNumber" , landNumber);
+            intentAddCustomer.putExtra("landAddress" , landAddress);
+            intentAddCustomer.putExtra("Tombon" , tombon);
+            intentAddCustomer.putExtra("amphure" , amphure);
+            intentAddCustomer.putExtra("province" , province);
+            intentAddCustomer.putExtra("landArea" , landArea);
+            intentAddCustomer.putExtra("landStatus" , landStatus);
+
+
+            startActivity(intentAddCustomer);
+
+        });
     }
 
     private void setText(){
@@ -129,5 +176,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         tvAmphure.setText(amphure);
         tvProvince.setText(province);
         tvLandArea.setText(landArea + " ตารางวา");
+        tvLandStatus.setText(landStatus );
     }
 }
